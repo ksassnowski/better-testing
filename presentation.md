@@ -144,6 +144,293 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 ---
 
+## What about **all those strings**?
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 7,9,14,16]
+
+```php
+/** @test */
+public function creatingANewGame(): void
+{
+    $user = User::factory()->create();
+
+    $this->actingAs($user)->post(route('games.store'), [
+        'name' => 'My super cool game',
+        'is_public' => 1,
+        'description' => 'A really long description that no one will ever read.',
+    ]);
+
+    $this->assertDatabaseHas('games', [
+        'user_id' => $user->id,
+        'name' => 'My super cool game',
+        'is_public' => 1,
+        'description' => 'A really long description that no one will ever read.',
+    ]);
+}
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 7,9,14,16]
+
+```php
+/** @test */
+public function creatingANewGame(): void
+{
+    $user = User::factory()->create();
+
+    $this->actingAs($user)->post(route('games.store'), [
+        'name' => 'My super cool game',
+        'is_public' => 1,
+        'description' => 'My super cool game',
+    ]);
+
+    $this->assertDatabaseHas('games', [
+        'user_id' => $user->id,
+        'name' => 'My super cool game',
+        'is_public' => 1,
+        'description' => 'My super cool game',
+    ]);
+}
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 7,9,14,16]
+
+```php
+/** @test */
+public function creatingANewGame(): void
+{
+    $user = User::factory()->create();
+
+    $this->actingAs($user)->post(route('games.store'), [
+        'name' => 'aaaaa',
+        'is_public' => 1,
+        'description' => 'aaaaa',
+    ]);
+
+    $this->assertDatabaseHas('games', [
+        'user_id' => $user->id,
+        'name' => 'aaaaa',
+        'is_public' => 1,
+        'description' => 'aaaaa',
+    ]);
+}
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 7,9,14,16]
+
+[.column]
+
+```php
+/** @test */
+public function creatingANewGame(): void
+{
+    $user = User::factory()->create();
+
+    $this->actingAs($user)->post(route('games.store'), [
+        'name' => 'aaaaa',
+        'is_public' => 1,
+        'description' => 'aaaaa',
+    ]);
+
+    $this->assertDatabaseHas('games', [
+        'user_id' => $user->id,
+        'name' => 'aaaaa',
+        'is_public' => 1,
+        'description' => 'aaaaa',
+    ]);
+}
+```
+
+[.column]
+
+## [fit] What matters is <br> that the strings <br> **match**.
+
+- We're only interested in what the string _represents_
+- We don't care about their exact values
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 4,6,14]
+
+```php
+/** @test */
+public function canBeConstructedWithAValidSerialNumber(): void
+{
+    $serialNumber = SerialNumber::fromString('ABCDEFG10234');
+
+    $this->assertEquals('ABCDEFG10234', (string) $serialNumber);
+}
+
+/** @test */
+public function throwsAnExceptionIfSerialNumberIsInvalid(): void
+{
+    $this->expectException(InvalidArgumentException::class);
+
+    SerialNumber::fromString('9999999999');
+}
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 4,6,14]
+
+```php
+/** @test */
+public function canBeConstructedWithAValidSerialNumber(): void
+{
+    $serialNumber = SerialNumber::fromString('ABCDEFG10234');
+
+    $this->assertEquals('ABCDEFG10234', (string) $serialNumber);
+}
+
+/** @test */
+public function throwsAnExceptionIfSerialNumberIsInvalid(): void
+{
+    $this->expectException(InvalidArgumentException::class);
+
+    SerialNumber::fromString('ABCDEFG10234');
+}
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 12]
+
+```php
+/** @test */
+public function canBeConstructedWithAValidSerialNumber(): void
+{
+    $serialNumber = SerialNumber::fromString('ABCDEFG10234');
+
+    $this->assertEquals('ABCDEFG10234', (string) $serialNumber);
+}
+
+/** @test */
+public function throwsAnExceptionIfSerialNumberIsInvalid(): void
+{
+    $this->expectException(InvalidArgumentException::class);
+
+    SerialNumber::fromString('ABCDEFG10234');
+}
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: 4-6,12-14]
+
+```php
+/** @test */
+public function canBeConstructedWithAValidSerialNumber(): void
+{
+    $serialNumber = SerialNumber::fromString('ABCDEFG10234');
+
+    $this->assertEquals('ABCDEFG10234', (string) $serialNumber);
+}
+
+/** @test */
+public function throwsAnExceptionIfSerialNumberIsInvalid(): void
+{
+    $this->expectException(InvalidArgumentException::class);
+
+    SerialNumber::fromString('ABCDEFG10234');
+}
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+
+[.column]
+
+```php
+/** @test */
+public function canBeConstructedWithAValidSerialNumber(): void
+{
+    $serialNumber = SerialNumber::fromString('ABCDEFG10234');
+
+    $this->assertEquals('ABCDEFG10234', (string) $serialNumber);
+}
+
+/** @test */
+public function throwsAnExceptionIfSerialNumberIsInvalid(): void
+{
+    $this->expectException(InvalidArgumentException::class);
+
+    SerialNumber::fromString('9999999999');
+}
+```
+
+[.column]
+
+## [fit] The **value** of <br> the string **matters**
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+
+## Make it **obvious** what's <br> relevant and what isn't
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+[.code-highlight: all]
+[.code-highlight: 7,9,14,16]
+
+```php
+/** @test */
+public function creatingANewGame(): void
+{
+    $user = User::factory()->create();
+
+    $this->actingAs($user)->post(route('games.store'), [
+        'name' => '::name::',
+        'is_public' => 1,
+        'description' => '::description::',
+    ]);
+
+    $this->assertDatabaseHas('games', [
+        'user_id' => $user->id,
+        'name' => '::name::',
+        'is_public' => 1,
+        'description' => '::description::',
+    ]);
+}
+
+```
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+
+- `"::description::"` is a string that **represents** a description, but it's actual value doesn't matter.
+- `"::name::"` is a string that **represents** a name, but it's actual value doesn't matter.
+
+---
+
+[.footer: Tip #2: Reducing _unnecessary_ details]
+
+## Caveats
+
+- Only works for strings
+- Might not work for all string (e.g. emails)
+
+---
+
 ### **Tip** #3
 
 ## [fit] Testing **Validation**
@@ -481,12 +768,6 @@ public function validationProvider(): Generator
 
 [.footer: Tip #4: _Testing Middleware_]
 
-Todo: Quick summary of what middleware does
-
----
-
-[.footer: Tip #4: _Testing Middleware_]
-
 ```php
 class AdminMiddleware
 {
@@ -506,9 +787,8 @@ class AdminMiddleware
 
 [.footer: Tip #4: _Testing Middleware_]
 
-## [fit] What's the _problem_?
-
-### Isn't a middleware _just a function_?
+> “What’s the problem? Isn't a middleware **just a function**?”
+> — My hypothetical listener (let's call him “Bob”)
 
 ---
 
@@ -553,6 +833,269 @@ public function __construct(
 - Complicated to construct
 - Detracts from the actual test
 - Makes the test harder to read
-- Reduced confidence
+- **⇒ Reduced confidence**
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+> “Why not use a **real route**?”
+> — Bob
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+## **Problem 2**: Using a real route
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+[.code-highlight: all]
+[.code-highlight: 5]
+
+### **Problem 2**: Using a real route
+
+```php
+// lots of other routes...
+
+Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+    ->name('admin.users.store')
+    ->middleware('admin');
+
+// lots of other routes...
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+[.code-highlight: all]
+[.code-highlight: 4]
+[.code-highlight: 6-7]
+[.code-highlight: 9]
+[.code-highlight: all]
+
+### **Problem 2**: Using a real route
+
+```php
+/** @test */
+public function onlyAdminsCanCreateUsers()
+{
+    $nonAdminUser = User::factory()->create();
+
+    $response = $this->actingAs($nonAdminUser)
+        ->post(route('admin.users.store'), [/* snip */]);
+
+    $response->assertForbidden();
+}
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+## This **works**!
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+## But...
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+## What are we **actually testing**?
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+```php
+/** @test */
+public function onlyAdminsCanCreateUsers()
+{
+    $nonAdminUser = User::factory()->create();
+
+    $response = $this->actingAs($nonAdminUser)
+        ->post(route('admin.users.store'), [/* snip */]);
+
+    $response->assertForbidden();
+}
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+```php
+Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+    ->name('admin.users.store')
+    ->middleware('admin');
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+[.code-highlight: all]
+[.code-highlight: 1]
+[.code-highlight: all]
+
+```php
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/users', [Admin\UsersController::class, 'index'])
+        ->name('admin.users.index');
+
+    Route::get('/admin/users/create', [Admin\UsersController::class, 'create'])
+        ->name('admin.users.create');
+
+    Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+        ->name('admin.users.store');
+
+    Route::get('/admin/users/{user}/edit', [Admin\UsersController::class, 'edit'])
+        ->name('admin.users.edit');
+
+    Route::put('/admin/users/{user}', [Admin\UsersController::class, 'update'])
+        ->name('admin.users.update');
+
+    Route::delete('/admin/users/{user}', [Admin\UsersController::class, 'destroy'])
+        ->name('admin.users.destroy');
+});
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+```php
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/users', [Admin\UsersController::class, 'index'])
+        ->name('admin.users.index');
+
+    Route::get('/admin/users/create', [Admin\UsersController::class, 'create'])
+        ->name('admin.users.create');
+
+    Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+        ->name('admin.users.store');
+
+    Route::get('/admin/users/{user}/edit', [Admin\UsersController::class, 'edit'])
+        ->name('admin.users.edit');
+
+    Route::put('/admin/users/{user}', [Admin\UsersController::class, 'update'])
+        ->name('admin.users.update');
+
+    Route::delete('/admin/users/{user}', [Admin\UsersController::class, 'destroy'])
+        ->name('admin.users.destroy');
+
+    Route::get('/admin/users', [Admin\UsersController::class, 'index'])
+        ->name('admin.users.index');
+
+    Route::get('/admin/users/create', [Admin\UsersController::class, 'create'])
+        ->name('admin.users.create');
+
+    Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+        ->name('admin.users.store');
+
+    Route::get('/admin/users/{user}/edit', [Admin\UsersController::class, 'edit'])
+        ->name('admin.users.edit');
+
+    Route::put('/admin/users/{user}', [Admin\UsersController::class, 'update'])
+        ->name('admin.users.update');
+
+    Route::delete('/admin/users/{user}', [Admin\UsersController::class, 'destroy'])
+        ->name('admin.users.destroy');
+});
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+```php
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/users', [Admin\UsersController::class, 'index'])
+        ->name('admin.users.index');
+
+    Route::get('/admin/users/create', [Admin\UsersController::class, 'create'])
+        ->name('admin.users.create');
+
+    Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+        ->name('admin.users.store');
+
+    Route::get('/admin/users/{user}/edit', [Admin\UsersController::class, 'edit'])
+        ->name('admin.users.edit');
+
+    Route::put('/admin/users/{user}', [Admin\UsersController::class, 'update'])
+        ->name('admin.users.update');
+
+    Route::delete('/admin/users/{user}', [Admin\UsersController::class, 'destroy'])
+        ->name('admin.users.destroy');
+
+    Route::get('/admin/users', [Admin\UsersController::class, 'index'])
+        ->name('admin.users.index');
+
+    Route::get('/admin/users/create', [Admin\UsersController::class, 'create'])
+        ->name('admin.users.create');
+
+    Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+        ->name('admin.users.store');
+
+    Route::get('/admin/users/{user}/edit', [Admin\UsersController::class, 'edit'])
+        ->name('admin.users.edit');
+
+    Route::put('/admin/users/{user}', [Admin\UsersController::class, 'update'])
+        ->name('admin.users.update');
+
+    Route::delete('/admin/users/{user}', [Admin\UsersController::class, 'destroy'])
+        ->name('admin.users.destroy');
+
+    Route::get('/admin/users', [Admin\UsersController::class, 'index'])
+        ->name('admin.users.index');
+
+    Route::get('/admin/users/create', [Admin\UsersController::class, 'create'])
+        ->name('admin.users.create');
+
+    Route::post('/admin/users', [Admin\UsersController::class, 'store'])
+        ->name('admin.users.store');
+
+    Route::get('/admin/users/{user}/edit', [Admin\UsersController::class, 'edit'])
+        ->name('admin.users.edit');
+
+    Route::put('/admin/users/{user}', [Admin\UsersController::class, 'update'])
+        ->name('admin.users.update');
+
+    Route::delete('/admin/users/{user}', [Admin\UsersController::class, 'destroy'])
+        ->name('admin.users.destroy');
+});
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+## Now **what**?
+
+- Should we include that same test for every single route?
+  - If yes, what if the middleware **needs to change**?
+- If not, do we use one of those routes as a “proof of concept”?
+  - If so, **which one**?
+  - Why this route?
+  - What does this **communicate**?
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+
+## What I **want to do**
+
+- Test the middleware at the **HTTP level**…
+- …but don't use an actual **application route**
+
+---
+
+### Tip #5
+
+## [fit] Using **Abstract Tests**
 
 ---
