@@ -1094,8 +1094,82 @@ Route::middleware(['admin'])->group(function () {
 
 ---
 
-### Tip #5
+[.footer: Tip #4: _Testing Middleware_]
+[.code-highlight: 3-10]
+[.code-highlight: 7-9]
+
+```php
+class AdminMiddlewareTest extends TestCase
+{
+    public function setUp()
+    {
+        parent::setUp();
+
+        Route::get('/middleware-test', function () {
+            return 'noice';
+        })->middleware('admin');
+    }
+}
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+[.code-highlight: 3-11]
+[.code-highlight: 6]
+[.code-highlight: 8-10]
+
+```php
+public function setUp() {…}
+
+/** @test */
+public function adminsCanAccessRoutes()
+{
+    $admin = User::factory()->admin()->create();
+
+    $this->actingAs($admin)
+        ->get('/middleware-test')
+        ->assertOk();
+}
+
+/** @test */
+public function nonAdminsCannotAccessRoute() {…}
+```
+
+---
+
+[.footer: Tip #4: _Testing Middleware_]
+[.code-highlight: 6-14]
+[.code-highlight: 9]
+[.code-highlight: 11-13]
+
+```php
+public function setUp() {…}
+
+/** @test */
+public function adminsCanAccessRoute() {…}
+
+/** @test */
+public function nonAdminsCannotAccessRoute()
+{
+    $nonAdmin = User::factory()->create();
+
+    $this->actingAs($nonAdmin)
+        ->get('/middleware-test')
+        ->assertForbidden();
+}
+```
+
+---
+
+### **Tip** #5
 
 ## [fit] Using **Abstract Tests**
+
+---
+
+### **Tip** #6
+
+## [fit] Tests should **not** be **DRY**
 
 ---
