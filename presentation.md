@@ -34,46 +34,6 @@ theme: Simple
 
 ---
 
-## [fit] spatie/**phpunit-watcher**
-
----
-
-[.footer: spatie/_phpunit-watcher_]
-
-![right](./phpunit-watcher-1.png)
-
-## Run entire test suite on save
-
-```bash
-phpunit-watcher watch
-```
-
----
-
-[.footer: spatie/_phpunit-watcher_]
-
-![right](./phpunit-watcher-2.png)
-
-## Run subset of tests on save
-
-```bash
-phpunit-watcher watch --filter=DependencyGraph
-```
-
----
-
-[.footer: spatie/_phpunit-watcher_]
-
-## Using it with **Pest**
-
-```yaml
-# .phpunit-watcher.yml
-phpunit:
-  binaryPath: vendor/bin/pest
-```
-
----
-
 ## [fit] Reducing <br> **unnecessary details**[^1]
 
 [^1]: https://www.kai-sassnowski.com/post/reducing-unnecessary-details-in-tests
@@ -775,66 +735,14 @@ class AdminMiddleware
 
 [.footer: _Testing Middleware_]
 
-> “What’s the problem? Isn’t a middleware **just a function**?”
-> — My hypothetical listener (let's call him “Bob”)
+> “Why not just use a **real route**?”
+> — Bob, the hypothetical listener
 
 ---
 
 [.footer: _Testing Middleware_]
 
-## Middleware
-
-```php
-public function handle(Request $request, Closure $next);
-```
-
----
-
-[.footer: _Testing Middleware_]
-
-## **Problem 1**: The `Request` class
-
----
-
-[.footer: _Testing Middleware_]
-
-### **Problem 1**: The `Request class`
-
-[.column]
-
-```php
-public function __construct(
-    array $query = [],
-    array $request = [],
-    array $attributes = [],
-    array $cookies = [],
-    array $files = [],
-    array $server = [],
-    $content = null
-) {
-    // ...
-}
-```
-
-[.column]
-
-- Complicated to construct
-- Detracts from the actual test
-- Makes the test harder to read
-- **⇒ Reduced confidence**
-
----
-
-[.footer: _Testing Middleware_]
-
-> “Why not use a **real route**?”
-> — Bob
-
----
-
-[.footer: _Testing Middleware_]
-
-## **Problem 2**: Using a real route
+## The **problem** with using a **real route**
 
 ---
 
@@ -842,7 +750,7 @@ public function __construct(
 [.code-highlight: all]
 [.code-highlight: 5]
 
-### **Problem 2**: Using a real route
+### The **problem** with using a **real route**
 
 ```php
 // lots of other routes...
@@ -863,7 +771,7 @@ Route::post('/admin/users', [Admin\UsersController::class, 'store'])
 [.code-highlight: 9]
 [.code-highlight: all]
 
-### **Problem 2**: Using a real route
+### The **problem** with using a **real route**
 
 ```php
 /** @test */
@@ -872,7 +780,7 @@ public function onlyAdminsCanCreateUsers()
     $nonAdminUser = User::factory()->create();
 
     $response = $this->actingAs($nonAdminUser)
-        ->post(route('admin.users.store'), [/* snip */]);
+        ->post(route('admin.users.store'), […]);
 
     $response->assertForbidden();
 }
@@ -907,7 +815,7 @@ public function onlyAdminsCanCreateUsers()
     $nonAdminUser = User::factory()->create();
 
     $response = $this->actingAs($nonAdminUser)
-        ->post(route('admin.users.store'), [/* snip */]);
+        ->post(route('admin.users.store'), […]);
 
     $response->assertForbidden();
 }
@@ -1289,15 +1197,6 @@ public function allowsRequestsIfValidSubscriptionExistsForTheMenu()
 [.footer: Better Testing in Laravel]
 
 ## [fit] **Thank You** For Listening
-
----
-
-[.footer: Better Testing in Laravel]
-
-## **Honoroable** Mentions (a.k.a. future blog posts)
-
-- Using **Abstract Tests**
-- Tests should **not** be **DRY**
 
 ---
 
