@@ -34,13 +34,11 @@ theme: Simple
 
 ---
 
-### **Tip** #1
-
 ## [fit] spatie/**phpunit-watcher**
 
 ---
 
-[.footer: Tip #1: spatie/_phpunit-watcher_]
+[.footer: spatie/_phpunit-watcher_]
 
 ![right](./phpunit-watcher-1.png)
 
@@ -52,7 +50,7 @@ phpunit-watcher watch
 
 ---
 
-[.footer: Tip #1: spatie/_phpunit-watcher_]
+[.footer: spatie/_phpunit-watcher_]
 
 ![right](./phpunit-watcher-2.png)
 
@@ -64,7 +62,7 @@ phpunit-watcher watch --filter=DependencyGraph
 
 ---
 
-[.footer: Tip #1: spatie/_phpunit-watcher_]
+[.footer: spatie/_phpunit-watcher_]
 
 ## Using it with Pest
 
@@ -76,13 +74,13 @@ phpunit:
 
 ---
 
-### **Tip** #2
+## [fit] Reducing <br> **unnecessary details**[^1]
 
-## [fit] Reducing <br> **unnecessary details**
+[^1]: https://www.kai-sassnowski.com/post/reducing-unnecessary-details-in-tests
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: all]
 [.code-highlight: 4]
 [.code-highlight: 6-10]
@@ -114,7 +112,7 @@ public function creatingANewGame(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 1-7]
 [.code-highlight: 4]
 [.code-highlight: 6]
@@ -148,7 +146,7 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 7,9,14,16]
 
 ```php
@@ -174,7 +172,7 @@ public function creatingANewGame(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 7,9,14,16]
 
 ```php
@@ -200,7 +198,7 @@ public function creatingANewGame(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 7,9,14,16]
 
 ```php
@@ -226,7 +224,7 @@ public function creatingANewGame(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 7,9,14,16]
 
 [.column]
@@ -261,7 +259,7 @@ public function creatingANewGame(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 4,6,14]
 
 ```php
@@ -284,7 +282,7 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 4,6,14]
 
 ```php
@@ -307,7 +305,7 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 12]
 
 ```php
@@ -330,7 +328,7 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: 4-6,12-14]
 
 ```php
@@ -353,7 +351,7 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 
 [.column]
 
@@ -381,13 +379,13 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 
 ## Make it **obvious** what's <br> relevant and what isn't
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 [.code-highlight: all]
 [.code-highlight: 7,9,14,16]
 
@@ -410,19 +408,18 @@ public function creatingANewGame(): void
         'description' => '::description::',
     ]);
 }
-
 ```
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 
 - `"::description::"` is a string that **represents** a description, but it's actual value doesn't matter.
 - `"::name::"` is a string that **represents** a name, but it's actual value doesn't matter.
 
 ---
 
-[.footer: Tip #2: Reducing _unnecessary_ details]
+[.footer: Reducing _unnecessary_ details]
 
 ## Caveats
 
@@ -431,13 +428,11 @@ public function creatingANewGame(): void
 
 ---
 
-### **Tip** #3
-
 ## [fit] Testing **Validation**
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 5-8]
 
@@ -459,7 +454,7 @@ class UsersController extends Controller
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 5-7]
 [.code-highlight: 10]
@@ -480,7 +475,7 @@ public function name_is_required()
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 ```php
 /** @test */
@@ -504,13 +499,13 @@ public function password_has_to_be_confirmed() { /* ... */ }
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 ## **Data providers** to the rescue
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 3]
 [.code-highlight: 5]
@@ -531,7 +526,7 @@ public function validationTests(array $payload, string $key)
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 1]
 [.code-highlight: 3-8]
@@ -562,20 +557,20 @@ public function validationProvider(): Generator
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 ![](./validation-output-1.png)
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 > “Ok, missing fields are easy. What about **incorrect values**?”
 > — You, probably
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 4,5]
 
@@ -590,7 +585,7 @@ $defaultPayload = [
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: 4-5]
 
 ```php
@@ -604,7 +599,7 @@ $defaultPayload = [
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 8-10]
 [.code-highlight: 12-17]
@@ -633,7 +628,7 @@ array_merge($defaultPayload, [
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: 4-9]
 [.code-highlight: 5-7]
 
@@ -652,20 +647,20 @@ yield from [
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 ![](./validation-output-2.png)
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 > “What about **unique emails**?”
 > — You, again
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 4-6]
 [.code-highlight: 10-11]
@@ -693,13 +688,13 @@ public function email_must_be_unique()
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 ## We a need a **setup** step
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 5]
 [.code-highlight: 7-9]
@@ -724,7 +719,7 @@ public function validationTests(array $payload, string $key, callable $setup = n
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 [.code-highlight: all]
 [.code-highlight: 8-17]
 [.code-highlight: 9-10]
@@ -754,19 +749,17 @@ public function validationProvider(): Generator
 
 ---
 
-[.footer: Tip #3: _Testing Validation_]
+[.footer: _Testing Validation_]
 
 ![](./validation-output-3.png)
 
 ---
 
-### **Tip** #4
-
 ## [fit] Testing **Middleware**
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ```php
 class AdminMiddleware
@@ -785,14 +778,14 @@ class AdminMiddleware
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 > “What’s the problem? Isn't a middleware **just a function**?”
 > — My hypothetical listener (let's call him “Bob”)
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## Middleware
 
@@ -802,13 +795,13 @@ public function handle(Request $request, Closure $next);
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## **Problem 1**: The `Request` class
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ### **Problem 1**: The `Request class`
 
@@ -837,20 +830,20 @@ public function __construct(
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 > “Why not use a **real route**?”
 > — Bob
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## **Problem 2**: Using a real route
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 [.code-highlight: all]
 [.code-highlight: 5]
 
@@ -868,7 +861,7 @@ Route::post('/admin/users', [Admin\UsersController::class, 'store'])
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 [.code-highlight: all]
 [.code-highlight: 4]
 [.code-highlight: 6-7]
@@ -892,25 +885,25 @@ public function onlyAdminsCanCreateUsers()
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## This **works**!
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## But...
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## What are we **actually testing**?
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ```php
 /** @test */
@@ -927,7 +920,7 @@ public function onlyAdminsCanCreateUsers()
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ```php
 Route::post('/admin/users', [Admin\UsersController::class, 'store'])
@@ -937,7 +930,7 @@ Route::post('/admin/users', [Admin\UsersController::class, 'store'])
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 [.code-highlight: all]
 [.code-highlight: 1]
 [.code-highlight: all]
@@ -966,7 +959,7 @@ Route::middleware(['admin'])->group(function () {
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ```php
 Route::middleware(['admin'])->group(function () {
@@ -1010,7 +1003,7 @@ Route::middleware(['admin'])->group(function () {
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ```php
 Route::middleware(['admin'])->group(function () {
@@ -1072,7 +1065,7 @@ Route::middleware(['admin'])->group(function () {
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## Now **what**?
 
@@ -1085,7 +1078,7 @@ Route::middleware(['admin'])->group(function () {
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 
 ## What I **want to do**
 
@@ -1094,7 +1087,7 @@ Route::middleware(['admin'])->group(function () {
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 [.code-highlight: 3-10]
 [.code-highlight: 7-9]
 
@@ -1114,7 +1107,7 @@ class AdminMiddlewareTest extends TestCase
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 [.code-highlight: 3-11]
 [.code-highlight: 6]
 [.code-highlight: 8-10]
@@ -1138,7 +1131,7 @@ public function nonAdminsCannotAccessRoute() {…}
 
 ---
 
-[.footer: Tip #4: _Testing Middleware_]
+[.footer: _Testing Middleware_]
 [.code-highlight: 6-14]
 [.code-highlight: 9]
 [.code-highlight: 11-13]
@@ -1162,14 +1155,155 @@ public function nonAdminsCannotAccessRoute()
 
 ---
 
-### **Tip** #5
-
-## [fit] Using **Abstract Tests**
+## Now that we know the **middleware works**…
 
 ---
 
-### **Tip** #6
-
-## [fit] Tests should **not** be **DRY**
+## …we can simply check if the route **uses it**
 
 ---
+
+[.footer: _Testing Middleware_]
+
+## `assertRouteUsesMiddleware`[^2]
+
+```php
+/** @test */
+public function onlyAdminsCanAccessRoute()
+{
+    $this->assertRouteUsesMiddleware('admin.users.store', ['admin']);
+}
+```
+
+[^2]: https://github.com/jasonmccreary/laravel-test-assertions
+
+---
+
+```php
+/**
+ * @test
+ * @dataProvider protectedRoutesProvider
+ */
+public function onlyAdminsCanAccessRoute(string $route)
+{
+    $this->assertRouteUsesMiddleware($route, ['admin']);
+}
+
+public function protectedRoutesProvider(): Generator
+{
+    yield from [
+        'list users' => ['admin.users.index'],
+        'view user create form' => ['admin.users.create']
+        'store user' => ['admin.users.store'],
+        'view user edit form' => ['admin.users.edit'],
+        'update user' => ['admin.users.update'],
+        'delete user' => ['admin.users.destroy'],
+    ];
+}
+```
+
+---
+
+[.footer: _Testing Middleware_]
+
+```php
+public function setUp()
+{
+    parent::setUp();
+
+    $this->withoutMiddleware(AdminMiddleware::class);
+}
+```
+
+---
+
+[.footer: _Testing Middleware_]
+
+## Why **deactivate** the middleware?
+
+---
+
+[.footer: _Testing Middleware_]
+[.code-highlight: all]
+[.code-highlight: 5-6]
+[.code-highlight: 8-10]
+[.code-highlight: 12]
+
+```php
+class ValidSubscription
+{
+    public function handle(Request $request, Closure $next)
+    {
+        /** @var User $user */
+        $user = $request->route('user');
+
+        if (!$user->onTrial() && !$user->subscribed('default')) {
+            abort(404);
+        }
+
+        return $next($request);
+    }
+}
+```
+
+---
+
+[.footer: _Testing Middleware_]
+[.code-highlight: all]
+[.code-highlight: 4]
+[.code-highlight: 5-11]
+[.code-highlight: 13]
+[.code-highlight: all]
+
+```php
+/** @test */
+public function allowsRequestsIfValidSubscriptionExistsForTheMenu()
+{
+    $user = User::factory()->create();
+    Subscription::create([
+        'user_id' => $user->id,
+        'stripe_id' => '::stripe-id::',
+        'stripe_status' => 'active',
+        'name' => 'default',
+        'ends_at' => null,
+    ]);
+
+    $this->get($user->get . '/test')->assertOk();
+}
+```
+
+---
+
+[.footer: _Testing Middleware_]
+
+- It **detracts** from the thing we're actually testing (the route)
+- It doesn't add any **additional coverage**
+
+---
+
+[.footer: _Testing Middleware_]
+
+## Summary
+
+- Test middleware separately by defining a **dummy route** in the test's `setUp` method
+- Check that your route **uses the middleware** with `assertRouteUsesMiddleware`
+- [Optional] **Deactivate** the middleware in your route tests
+
+---
+
+[.footer: Better Testing in Laravel]
+
+## [fit] **Thank You** For Listening
+
+---
+
+[.footer: Better Testing in Laravel]
+
+## **Honoroable** Mentions (a.k.a. future blog posts)
+
+- Using **Abstract Tests**
+- Tests should **not** be **DRY**
+
+---
+
+# [fit] **Bye**
