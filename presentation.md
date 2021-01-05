@@ -10,27 +10,27 @@ theme: Simple
 
 [.footer: The Goal: _Properties of Tests_]
 
-## The _Goal_
+## **The Goal**
 
-### i.e. What _properties_ do I want my tests to have?
+### i.e. What **properties** do I want my tests to have?
 
 ---
 
 [.footer: The Goal: _Properties of Tests_]
 
-## The Goal: Properties of Tests
+## **The Goal**: Properties of Tests
 
 - ~~Prove correctness~~
-- Allow me to refactor
-  - How confident am I in my test suite?
-- Serve as excecutable documentation
-- Simple to understand
+- Allow me to **refactor**
+  - How **confident** am I in my test suite?
+- Serve as **excecutable documentation**
+- **Simple** to understand
 
 ---
 
 [.footer: The Goal: _Properties of Tests_]
 
-## [fit] What about _fast_?
+## [fit] What about **fast**?
 
 ---
 
@@ -64,7 +64,7 @@ phpunit-watcher watch --filter=DependencyGraph
 
 [.footer: spatie/_phpunit-watcher_]
 
-## Using it with Pest
+## Using it with **Pest**
 
 ```yaml
 # .phpunit-watcher.yml
@@ -252,10 +252,9 @@ public function creatingANewGame(): void
 
 [.column]
 
-## [fit] What matters is <br> that the strings <br> **match**.
-
-- We're only interested in what the string _represents_
-- We don't care about their exact values
+- What matters is that the strings **match**.
+- We're only interested in what the string **represents**
+- We **don't care** about their **exact values**
 
 ---
 
@@ -353,7 +352,7 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
 
 [.footer: Reducing _unnecessary_ details]
 
-[.column]
+## The **value** of the string **matters**
 
 ```php
 /** @test */
@@ -372,10 +371,6 @@ public function throwsAnExceptionIfSerialNumberIsInvalid(): void
     SerialNumber::fromString('9999999999');
 }
 ```
-
-[.column]
-
-## [fit] The **value** of <br> the string **matters**
 
 ---
 
@@ -780,7 +775,7 @@ class AdminMiddleware
 
 [.footer: _Testing Middleware_]
 
-> “What’s the problem? Isn't a middleware **just a function**?”
+> “What’s the problem? Isn’t a middleware **just a function**?”
 > — My hypothetical listener (let's call him “Bob”)
 
 ---
