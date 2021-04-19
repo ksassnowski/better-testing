@@ -1,5 +1,6 @@
 build-lists: true
 theme: Simple
+slide-transition: true
 [.footer: Laracon EU 2020]
 
 # _Better Testing_ in Laravel
